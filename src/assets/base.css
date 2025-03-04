@@ -1,7 +1,28 @@
+@font-face {
+  font-family: 'Mouse Memoirs';
+  src: url('@/assets/fonts/MouseMemoirs-Regular.ttf');
+}
+
+:root {
+  --color-dark-navy: #261676;
+  --color-dark-navy-shadow: #140e66;
+  --color-blue: #2463ff;
+  --color-blue-shadow: #3c74ff;
+  --color-white: #ffffff;
+  --gradient-pink: linear-gradient(180deg, #fe71fe, #719aff);
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  text-transform: uppercase;
+  font-family: 'Mouse Memoirs', sans-serif;
+  color: var(--color-dark-navy);
+  background-image: url('@/assets/images/background-mobile.svg');
 }
