@@ -4,12 +4,13 @@
 }
 
 :root {
-  --color-dark-navy: #261676;
-  --color-dark-navy-shadow: #140e66;
-  --color-blue: #2463ff;
-  --color-blue-shadow: #3c74ff;
-  --color-white: #ffffff;
-  --gradient-pink: linear-gradient(180deg, #fe71fe, #719aff);
+  --color-dark-navy: hsl(250, 69%, 27%);
+  --color-dark-navy-transparent: hsla(250, 69%, 27%, 70%);
+  --color-dark-navy-shadow: hsl(244, 76%, 23%);
+  --color-blue: hsl(223, 100%, 57%);
+  --color-blue-shadow: hsl(223, 100%, 62%);
+  --color-white: hsl(0, 0%, 100%);
+  --gradient-pink: linear-gradient(180deg, hsl(300, 99%, 72%), hsl(223, 100%, 72%));
 }
 
 *,
@@ -25,4 +26,8 @@ html {
   font-family: 'Mouse Memoirs', sans-serif;
   color: var(--color-dark-navy);
   background-image: url('@/assets/images/background-mobile.svg');
+}
+
+#app {
+  height: 100dvh;
 }
