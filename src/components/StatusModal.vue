@@ -12,7 +12,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['continueGame', 'changeCategory', 'quitGame'])
+const emit = defineEmits(['continueGame', 'changeCategory', 'quitGame', 'closeModal'])
 
 const statusModal = useTemplateRef('statusModal')
 
@@ -41,20 +41,20 @@ onUpdated(() => {
 function closeModal() {
   if (props.status === 'pause') {
     emit('continueGame')
+  } else {
+    emit('closeModal')
   }
 }
 </script>
 
 <template>
   <dialog ref="statusModal" class="modal-container" @cancel="closeModal">
-    <div id="clickable">
-      <h1>{{ statusText }}</h1>
-      <div class="modal-body">
-        <div class="modal-buttons">
-          <button @click="emit('continueGame')">continue</button>
-          <button @click="emit('changeCategory')">new category</button>
-          <button @click="emit('quitGame')" class="button-quit">quit game</button>
-        </div>
+    <h1>{{ statusText }}</h1>
+    <div class="modal-body">
+      <div class="modal-buttons">
+        <button @click="emit('continueGame')">continue</button>
+        <button @click="emit('changeCategory')">new category</button>
+        <button @click="emit('quitGame')" class="button-quit">quit game</button>
       </div>
     </div>
   </dialog>
@@ -69,6 +69,8 @@ function closeModal() {
   overflow: hidden;
   -webkit-user-select: none;
   user-select: none;
+  width: 90%;
+  max-width: 592px;
 }
 
 .modal-container::backdrop {

@@ -69,6 +69,12 @@ const status = computed(() => {
   }
 })
 
+watch([wonGame, loseGame], () => {
+  if (wonGame.value || loseGame.value) {
+    showModal.value = true
+  }
+})
+
 function makeGuess(guessLetter) {
   usedLetters.value = [...usedLetters.value, guessLetter]
 
@@ -105,6 +111,10 @@ function showMenu() {
   }
 }
 
+function hideMenu() {
+  showModal.value = false
+}
+
 function resetGame() {
   usedLetters.value = []
   guestInProgress.value = wordToGuess.value.replace(/\w/g, '*').split('')
@@ -113,7 +123,7 @@ function resetGame() {
 }
 
 function continueGame() {
-  showModal.value = false
+  hideMenu()
   gameIsPaused.value = false
 }
 </script>
@@ -172,7 +182,12 @@ function continueGame() {
     </section>
   </div>
 
-  <StatusModal :status :show-modal="showModal" @continue-game="continueGame"></StatusModal>
+  <StatusModal
+    :status
+    :show-modal="showModal"
+    @continue-game="continueGame"
+    @close-modal="hideMenu"
+  ></StatusModal>
 </template>
 
 <style scoped>
