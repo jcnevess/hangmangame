@@ -4,13 +4,16 @@
 }
 
 :root {
+  --color-dark-grayish-blue: hsl(215, 29%, 20%);
   --color-dark-navy: hsl(250, 69%, 27%);
   --color-dark-navy-transparent: hsla(250, 69%, 27%, 70%);
   --color-dark-navy-shadow: hsl(244, 76%, 23%);
   --color-blue: hsl(223, 100%, 57%);
   --color-blue-shadow: hsl(223, 100%, 62%);
   --color-white: hsl(0, 0%, 100%);
+  --color-pink: hsl(283, 96%, 62%);
   --gradient-pink: linear-gradient(180deg, hsl(300, 99%, 72%), hsl(223, 100%, 72%));
+  --gradient-blue: linear-gradient(180deg, hsl(209, 100%, 70%), hsl(0, 0%, 100%));
 }
 
 *,
@@ -26,6 +29,8 @@ html {
   font-family: 'Mouse Memoirs', sans-serif;
   color: var(--color-dark-navy);
   background-image: url('@/assets/images/background-mobile.svg');
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #app {

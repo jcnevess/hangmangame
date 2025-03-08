@@ -1,8 +1,9 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import IconMenu from '@/components/icons/IconMenu.vue'
 import IconHeart from './components/icons/IconHeart.vue'
+import StatusModal from './components/StatusModal.vue'
 
 const alphabet = [
   'a',
@@ -46,11 +47,27 @@ const usedLetters = ref([])
 
 const livesLeft = ref(8)
 
+const gameIsPaused = ref(false)
+
 const chosenCategory = ref('cities')
+
+const showModal = ref(false)
 
 const wonGame = computed(() => guestInProgress.value.join('') === wordToGuess.value)
 
 const loseGame = computed(() => livesLeft.value === 0)
+
+const status = computed(() => {
+  if (gameIsPaused.value) {
+    return 'pause'
+  } else if (wonGame.value) {
+    return 'win'
+  } else if (loseGame.value) {
+    return 'lose'
+  } else {
+    return ''
+  }
+})
 
 function makeGuess(guessLetter) {
   usedLetters.value = [...usedLetters.value, guessLetter]
@@ -79,13 +96,33 @@ function makeGuess(guessLetter) {
 function isUsedLetter(letter) {
   return usedLetters.value.indexOf(letter) >= 0
 }
+
+function showMenu() {
+  showModal.value = true
+
+  if (!wonGame.value && !loseGame.value) {
+    gameIsPaused.value = true
+  }
+}
+
+function resetGame() {
+  usedLetters.value = []
+  guestInProgress.value = wordToGuess.value.replace(/\w/g, '*').split('')
+  livesLeft.value = 8
+  gameIsPaused.value = false
+}
+
+function continueGame() {
+  showModal.value = false
+  gameIsPaused.value = false
+}
 </script>
 
 <template>
   <div class="container">
     <header>
       <div class="header-controls">
-        <button class="menu-button" role="navigation" title="Toggle Menu">
+        <button class="menu-button" role="navigation" title="Toggle Menu" @click="showMenu">
           <IconMenu></IconMenu>
         </button>
         <div class="category">{{ chosenCategory }}</div>
@@ -134,6 +171,8 @@ function isUsedLetter(letter) {
       </button>
     </section>
   </div>
+
+  <StatusModal :status :show-modal="showModal" @continue-game="continueGame"></StatusModal>
 </template>
 
 <style scoped>
