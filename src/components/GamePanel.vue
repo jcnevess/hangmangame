@@ -132,8 +132,6 @@ function resetAndQuitGame() {
 
 function resetGame() {
   gameIsPaused.value = false
-  wonGame.value = false
-  loseGame.value = false
   showModal.value = false
   livesLeft.value = INITIAL_LIVES
   usedLetters.value = []
