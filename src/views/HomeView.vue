@@ -1,7 +1,7 @@
-<script setup></script>
+<script setup>
+import MainMenu from '@/components/MainMenu.vue'
+</script>
 
 <template>
-  <main>
-    <h1>Hello</h1>
-  </main>
+  <MainMenu></MainMenu>
 </template>

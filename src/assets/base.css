@@ -35,4 +35,18 @@ html {
 
 #app {
   height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 376px) {
+  html {
+    background-image: url('@/assets/images/background-tablet.svg');
+  }
+}
+
+@media (min-width: 769px) {
+  html {
+    background-image: url('@/assets/images/background-desktop.svg');
+  }
 }
