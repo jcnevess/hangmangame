@@ -13,7 +13,9 @@ import IconPlay from './icons/IconPlay.vue'
           <IconPlay class="play-icon"></IconPlay>
         </div>
       </RouterLink>
-      <button class="help">how to play</button>
+      <RouterLink to="/help">
+        <button class="help">how to play</button>
+      </RouterLink>
     </div>
   </main>
 </template>

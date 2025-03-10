@@ -136,6 +136,11 @@ function resetGame() {
   livesLeft.value = INITIAL_LIVES
   usedLetters.value = []
 }
+
+function resetAndChangeCategory() {
+  resetGame()
+  router.push('/category')
+}
 </script>
 
 <template>
@@ -198,6 +203,7 @@ function resetGame() {
     @continue-game="continueGame"
     @close-modal="hideMenu"
     @quit-game="resetAndQuitGame"
+    @change-category="resetAndChangeCategory()"
   ></StatusModal>
 </template>
 <style scoped>

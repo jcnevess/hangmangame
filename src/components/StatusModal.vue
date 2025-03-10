@@ -49,7 +49,7 @@ function closeModal() {
 
 <template>
   <dialog ref="statusModal" class="modal-container" @cancel="closeModal">
-    <h1>{{ statusText }}</h1>
+    <h1 class="title">{{ statusText }}</h1>
     <div class="modal-body">
       <div class="modal-buttons">
         <button @click="emit('continueGame')">continue</button>
@@ -92,7 +92,7 @@ function closeModal() {
   position: relative;
 }
 
-h1 {
+.title {
   font-size: 6rem;
   font-weight: 100;
   text-transform: capitalize;
