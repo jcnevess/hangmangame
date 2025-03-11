@@ -5,6 +5,7 @@ import IconMenu from '@/components/icons/IconMenu.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
 import StatusModal from '@/components/StatusModal.vue'
 import { useRouter } from 'vue-router'
+import { useSolutionStore } from '@/stores/solution'
 
 const alphabet = [
   'a',
@@ -39,12 +40,11 @@ const INITIAL_LIVES = 8
 
 const router = useRouter()
 
-const wordToGuess = ref(
-  'Porto Alegre'
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''),
-)
+const solutionStore = useSolutionStore()
+
+const currentCategory = ref(solutionStore.selectedCategory ?? 'Movies')
+
+const wordToGuess = ref(sanitize(solutionStore.getWordByCategory(currentCategory.value)))
 
 const guestInProgress = ref(wordToGuess.value.replace(/\w/g, '*').split(''))
 
@@ -53,8 +53,6 @@ const usedLetters = ref([])
 const livesLeft = ref(INITIAL_LIVES)
 
 const gameIsPaused = ref(false)
-
-const chosenCategory = ref('cities')
 
 const showModal = ref(false)
 
@@ -79,6 +77,13 @@ watch([wonGame, loseGame], () => {
     showModal.value = true
   }
 })
+
+function sanitize(word) {
+  return word
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
 
 function makeGuess(guessLetter) {
   usedLetters.value = [...usedLetters.value, guessLetter]
@@ -150,7 +155,7 @@ function resetAndChangeCategory() {
         <button class="menu-button" role="navigation" title="Toggle Menu" @click="showMenu">
           <IconMenu></IconMenu>
         </button>
-        <div class="category">{{ chosenCategory }}</div>
+        <div class="category">{{ currentCategory }}</div>
       </div>
       <div class="lives-monitor">
         <progress
@@ -175,7 +180,7 @@ function resetAndChangeCategory() {
         <span
           v-for="(letter, index) in word"
           :key="`${letter}-${index}`"
-          class="letter guess-slot letter-slot"
+          class="letter-slot guess-slot"
           :class="{
             'guess-slot-empty': letter === '*',
           }"
@@ -212,28 +217,32 @@ function resetAndChangeCategory() {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 150%;
+  text-transform: uppercase;
 }
 
 .guess-button {
-  text-transform: uppercase;
   font-size: 1.5rem;
   color: var(--color-dark-navy);
   width: 100%;
   border-radius: 8px;
   border: none;
+  line-height: 150%;
+  letter-spacing: -0.02ch;
+  padding: 0.5rem;
 }
 
 .guess-slot {
-  width: 40px;
-  height: 66px;
   border-radius: 12px;
   color: var(--color-white);
   background-color: var(--color-blue);
   font-size: 2.5rem;
+  line-height: 120%;
+  letter-spacing: 0.05ch;
+  padding: 0.5rem 0.75rem;
   box-shadow:
     inset 0 -2px 0 3px var(--color-dark-navy-shadow),
     inset 0 1px 0 6px var(--color-blue-shadow);
+  width: 40px;
 }
 
 .guess-slot-empty {
@@ -336,5 +345,18 @@ progress[value]::-moz-progress-bar {
   width: 100%;
   padding: 3rem 1.75rem;
   background-color: var(--color-dark-navy-transparent);
+}
+
+@media (min-width: 376px) {
+  .guess-button {
+    font-size: 3rem;
+    border-radius: 24px;
+  }
+
+  .guess-slot {
+    font-size: 4rem;
+    padding: 1rem 2rem;
+    border-radius: 32px;
+  }
 }
 </style>

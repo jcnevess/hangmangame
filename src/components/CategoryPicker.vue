@@ -1,8 +1,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import IconBack from './icons/IconBack.vue'
+import { useSolutionStore } from '@/stores/solution'
 
 const router = useRouter()
+
+const solutionStore = useSolutionStore()
+
+function startNewGame(category) {
+  solutionStore.setSelectedCategory(category)
+  router.push('/game')
+}
 </script>
 
 <template>
@@ -14,11 +22,14 @@ const router = useRouter()
       <h1 class="title">Pick a Category</h1>
     </div>
     <div class="categories">
-      <button class="category" @click="router.push('/game')">cities</button>
-      <button class="category" @click="router.push('/game')">cities</button>
-      <button class="category" @click="router.push('/game')">cities</button>
-      <button class="category" @click="router.push('/game')">cities</button>
-      <button class="category" @click="router.push('/game')">cities</button>
+      <button
+        v-for="category in solutionStore.categories"
+        :key="category"
+        class="category"
+        @click="startNewGame(category)"
+      >
+        {{ category }}
+      </button>
     </div>
   </div>
 </template>

@@ -8,7 +8,7 @@ import IconPlay from './icons/IconPlay.vue'
       <div class="logo">
         <img src="@/assets/images/logo.svg" alt="The Hangman Game" role="heading" />
       </div>
-      <RouterLink to="/game" class="play-link" role="button">
+      <RouterLink to="/category" class="play-link" role="button">
         <div class="play-button">
           <IconPlay class="play-icon"></IconPlay>
         </div>
