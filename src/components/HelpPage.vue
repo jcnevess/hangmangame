@@ -74,6 +74,13 @@ import IconBack from './icons/IconBack.vue'
   height: 40px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.button-back:hover,
+.button-back:active {
+  background-color: hsla(0, 0%, 100%, 0.25);
+  background-blend-mode: color-dodge;
 }
 
 .button-back svg {

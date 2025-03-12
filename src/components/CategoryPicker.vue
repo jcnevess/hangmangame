@@ -59,6 +59,13 @@ function startNewGame(category) {
   height: 40px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.button-back:hover,
+.button-back:active {
+  background-color: hsla(0, 0%, 100%, 0.25);
+  background-blend-mode: color-dodge;
 }
 
 .button-back svg {
@@ -105,5 +112,12 @@ function startNewGame(category) {
   box-shadow:
     inset 0 -2px 0 3px #140e66,
     inset 0 1px 0 6px #3c74ff;
+  cursor: pointer;
+}
+
+.category:hover,
+.category:active {
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 100%, 0.25));
+  background-blend-mode: color-dodge;
 }
 </style>

@@ -229,6 +229,13 @@ function resetAndChangeCategory() {
   line-height: 150%;
   letter-spacing: -0.02ch;
   padding: 0.5rem;
+  cursor: pointer;
+}
+
+.guess-button:hover,
+.guess-button:active {
+  color: var(--color-white);
+  background-color: var(--color-blue);
 }
 
 .guess-slot {
@@ -290,6 +297,13 @@ header {
   background-image: var(--gradient-pink);
   width: 40px;
   height: 40px;
+  cursor: pointer;
+}
+
+.menu-button:hover,
+.menu-button:active {
+  background-color: hsla(0, 0%, 100%, 0.25);
+  background-blend-mode: color-dodge;
 }
 
 .menu-button svg {

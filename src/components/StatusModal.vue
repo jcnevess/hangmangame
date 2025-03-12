@@ -132,6 +132,13 @@ button {
   box-shadow:
     inset 0 -2px 0 2px var(--color-dark-navy),
     inset 0 3px 0 3px var(--color-blue-shadow);
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 100%, 0.25));
+  background-blend-mode: color-dodge;
 }
 
 .button-quit {
@@ -139,5 +146,12 @@ button {
   box-shadow:
     inset 0 -2px 0 2px var(--color-dark-navy),
     inset 0 3px 0 3px var(--color-pink);
+}
+
+.button-quit:hover,
+.button-quit:active {
+  background-image:
+    linear-gradient(180deg, hsl(0deg 0% 100% / 25%), hsl(0deg 0% 100% / 25%)), var(--gradient-pink);
+  background-blend-mode: unset;
 }
 </style>

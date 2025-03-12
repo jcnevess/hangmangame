@@ -65,6 +65,12 @@ import IconPlay from './icons/IconPlay.vue'
   place-items: center;
 }
 
+.play-button:hover,
+.play-button:active {
+  background-color: rgba(100, 100, 100, 25%);
+  background-blend-mode: color-dodge;
+}
+
 .play-icon {
   height: 50px;
 }
@@ -82,5 +88,12 @@ import IconPlay from './icons/IconPlay.vue'
     inset 0 -2px 0 3px #140e66,
     inset 0 1px 0 6px #3c74ff;
   letter-spacing: 0.2ch;
+  cursor: pointer;
+}
+
+.help:hover,
+.help:active {
+  background-image: linear-gradient(180deg, rgba(100, 100, 100, 25%), rgba(100, 100, 100, 25%));
+  background-blend-mode: color-dodge;
 }
 </style>
