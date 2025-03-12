@@ -40,7 +40,7 @@ function startNewGame(category) {
   background-image: linear-gradient(180deg, hsl(270, 96%, 10%), hsl(238, 58%, 37%));
   padding-top: 2rem;
   padding-inline: 1.5rem;
-  gap: 5rem;
+  gap: 2rem;
   flex-direction: column;
   display: flex;
 }
@@ -55,8 +55,8 @@ function startNewGame(category) {
   background-image: var(--gradient-pink);
   border-radius: 100%;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: clamp(40px, calc(40px + 2vw), 60px);
+  height: clamp(40px, calc(40px + 2vw), 60px);
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -73,7 +73,7 @@ function startNewGame(category) {
 }
 
 .title {
-  font-size: 3rem;
+  font-size: clamp(3rem, calc(6vw + 1rem), 7rem);
   letter-spacing: 0.1ch;
   text-align: center;
   text-transform: none;
@@ -92,11 +92,12 @@ function startNewGame(category) {
 
 .categories {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-wrap: wrap;
   align-items: stretch;
   flex-grow: 1;
   justify-content: center;
+  align-content: center;
+  gap: 1rem;
 }
 
 .category {
@@ -113,11 +114,45 @@ function startNewGame(category) {
     inset 0 -2px 0 3px #140e66,
     inset 0 1px 0 6px #3c74ff;
   cursor: pointer;
+  width: 324px;
+  height: fit-content;
 }
 
 .category:hover,
 .category:active {
   background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 100%, 0.25));
   background-blend-mode: color-dodge;
+}
+
+@media (min-width: 769px) {
+  .container {
+    position: relative;
+  }
+
+  .categories {
+    gap: 2rem;
+  }
+
+  .category {
+    padding: 3rem 1.75rem;
+    font-size: 2rem;
+  }
+
+  .button-back {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .title {
+    text-align: center;
+    flex-grow: 1;
+  }
+}
+
+@media (min-width: 1025px) {
+  .category {
+    padding: 4rem 2.75rem;
+    font-size: 3rem;
+  }
 }
 </style>

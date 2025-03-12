@@ -276,6 +276,8 @@ function resetAndChangeCategory() {
 .guess-word {
   display: flex;
   column-gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 header {
@@ -358,7 +360,6 @@ progress[value]::-moz-progress-bar {
   height: 100%;
   width: 100%;
   padding: 3rem 1.75rem;
-  background-color: var(--color-dark-navy-transparent);
 }
 
 @media (min-width: 376px) {

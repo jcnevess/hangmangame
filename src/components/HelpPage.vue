@@ -13,10 +13,8 @@ import IconBack from './icons/IconBack.vue'
 
     <main class="help-cards">
       <div class="help-card">
-        <h2 class="help-title">
-          <span class="title-number">01</span>
-          <span class="title-text">choose a category</span>
-        </h2>
+        <div class="help-title title-number">01</div>
+        <h2 class="help-title title-text">choose a category</h2>
         <p class="help-text">
           First, choose a word category, like animals or movies. The computer then randomly selects
           a secret word from that topic and shows you blanks for each letter of the word.
@@ -24,10 +22,8 @@ import IconBack from './icons/IconBack.vue'
       </div>
 
       <div class="help-card">
-        <h2 class="help-title">
-          <span class="title-number">02</span>
-          <span class="title-text">guess letters</span>
-        </h2>
+        <div class="help-title title-number">02</div>
+        <h2 class="help-title title-text">guess letters</h2>
         <p class="help-text">
           Take turns guessing letters. The computer fills in the relevant blank spaces if your guess
           is correct. If it’s wrong, you lose some health, which empties after eight incorrect
@@ -36,10 +32,8 @@ import IconBack from './icons/IconBack.vue'
       </div>
 
       <div class="help-card">
-        <h2 class="help-title">
-          <span class="title-number">03</span>
-          <span class="title-text">Win or lose</span>
-        </h2>
+        <div class="help-title title-number">03</div>
+        <h2 class="help-title title-text">Win or lose</h2>
         <p class="help-text">
           You win by guessing all the letters in the word before your health runs out. If the health
           bar empties before you guess the word, you lose.
@@ -52,12 +46,11 @@ import IconBack from './icons/IconBack.vue'
 <style scoped>
 .container {
   width: 100%;
-  background-image: linear-gradient(180deg, hsl(270, 96%, 10%), hsl(238, 58%, 37%));
+  max-width: 768px;
   padding: 2rem 1.5rem;
   gap: 5rem;
   flex-direction: column;
   display: flex;
-  overflow: scroll;
 }
 
 .header {
@@ -70,11 +63,11 @@ import IconBack from './icons/IconBack.vue'
   background-image: var(--gradient-pink);
   border-radius: 100%;
   border: none;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   cursor: pointer;
+  width: clamp(40px, calc(40px + 2vw), 60px);
+  height: clamp(40px, calc(40px + 2vw), 60px);
 }
 
 .button-back:hover,
@@ -90,7 +83,7 @@ import IconBack from './icons/IconBack.vue'
 .title {
   letter-spacing: 0.1ch;
   line-height: 120%;
-  font-size: 3rem;
+  font-size: clamp(3rem, calc(6vw + 1rem), 7rem);
   text-align: center;
   text-transform: none;
   position: relative;
@@ -114,8 +107,9 @@ import IconBack from './icons/IconBack.vue'
 }
 
 .help-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, auto);
   gap: 1rem;
   padding: 2rem;
   background-color: var(--color-white);
@@ -123,8 +117,6 @@ import IconBack from './icons/IconBack.vue'
 }
 
 .help-title {
-  display: flex;
-  gap: 1rem;
   font-size: 1.5rem;
   line-height: 120%;
   letter-spacing: 0.05ch;
@@ -136,9 +128,72 @@ import IconBack from './icons/IconBack.vue'
 }
 
 .help-text {
+  grid-column: 1/3;
   text-transform: none;
   line-height: 120%;
   letter-spacing: 0.05ch;
   color: hsl(250, 35%, 62%);
+}
+
+@media (min-width: 376px) {
+  .help-card {
+    column-gap: 2rem;
+  }
+
+  .title {
+    /*font-size: 104px;*/
+    -webkit-text-stroke: 18px var(--color-dark-grayish-blue);
+    flex-grow: 1;
+  }
+
+  .title-number {
+    grid-row: 1/3;
+    font-size: 5.5rem;
+  }
+
+  .title-text {
+    font-size: 2.5rem;
+  }
+
+  .help-text {
+    grid-column: unset;
+    font-size: 1.25rem;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .button-back {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .button-back svg {
+    width: 28px;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    max-width: unset;
+    padding: 3rem;
+  }
+
+  .help-cards {
+    flex-direction: row;
+  }
+
+  .help-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+  }
+
+  .title-number {
+    grid-row: 1 / span 1;
+  }
 }
 </style>

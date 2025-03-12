@@ -32,6 +32,8 @@ import IconPlay from './icons/IconPlay.vue'
     inset 0 -8px 0 4px #140e66,
     inset 0 6px 0 8px #2463ff;
   margin: auto 1.5rem;
+  flex-grow: 1;
+  max-width: 592px;
 }
 
 .container {
@@ -95,5 +97,19 @@ import IconPlay from './icons/IconPlay.vue'
 .help:active {
   background-image: linear-gradient(180deg, rgba(100, 100, 100, 25%), rgba(100, 100, 100, 25%));
   background-blend-mode: color-dodge;
+}
+
+@media (min-width: 768px) {
+  .play-button {
+    width: 200px;
+  }
+
+  .play-button svg {
+    height: 62px;
+  }
+
+  .container {
+    gap: 5rem;
+  }
 }
 </style>
