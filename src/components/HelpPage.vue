@@ -8,35 +8,36 @@ import IconBack from './icons/IconBack.vue'
       <button class="button-back" @click="$router.back()">
         <IconBack></IconBack>
       </button>
-      <h1 class="title">How to Play</h1>
+      <h1 class="title">Como Jogar?</h1>
     </header>
 
     <main class="help-cards">
       <div class="help-card">
         <div class="help-title title-number">01</div>
-        <h2 class="help-title title-text">choose a category</h2>
+        <h2 class="help-title title-text">escolha uma categoria</h2>
         <p class="help-text">
-          First, choose a word category, like animals or movies. The computer then randomly selects
-          a secret word from that topic and shows you blanks for each letter of the word.
+          Primeiro, escolha uma categoria de palavras, como animais ou filmes. O jogo então
+          seleciona aleatoriamente uma palavra secreta daquela categoria e mostra espaços em branco
+          para cada letra da palavra.
         </p>
       </div>
 
       <div class="help-card">
         <div class="help-title title-number">02</div>
-        <h2 class="help-title title-text">guess letters</h2>
+        <h2 class="help-title title-text">advinhe as letras</h2>
         <p class="help-text">
-          Take turns guessing letters. The computer fills in the relevant blank spaces if your guess
-          is correct. If it’s wrong, you lose some health, which empties after eight incorrect
-          guesses.
+          Advinhe as letras. O jogo preenche os espaços em branco relevantes se o seu palpite
+          estiver correto. Se estiver errado, você perde uma vida, que se acabam após oito palpites
+          incorretos.
         </p>
       </div>
 
       <div class="help-card">
         <div class="help-title title-number">03</div>
-        <h2 class="help-title title-text">Win or lose</h2>
+        <h2 class="help-title title-text">Ganhe ou perca</h2>
         <p class="help-text">
-          You win by guessing all the letters in the word before your health runs out. If the health
-          bar empties before you guess the word, you lose.
+          Você ganha ao adivinhar todas as letras da palavra antes que suas vidas acabem. Se suas
+          vidas acabarem antes de você adivinhar a palavra, você perde.
         </p>
       </div>
     </main>
@@ -91,7 +92,7 @@ import IconBack from './icons/IconBack.vue'
 }
 
 .title::before {
-  content: 'How to Play';
+  content: 'Como Jogar?';
   position: absolute;
   background: var(--gradient-blue);
   -webkit-text-fill-color: transparent;

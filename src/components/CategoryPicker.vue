@@ -19,7 +19,7 @@ function startNewGame(category) {
       <button class="button-back" @click="router.back()">
         <IconBack></IconBack>
       </button>
-      <h1 class="title">Pick a Category</h1>
+      <h1 class="title">Categoria</h1>
     </div>
     <div class="categories">
       <button
@@ -79,7 +79,7 @@ function startNewGame(category) {
 }
 
 .title::before {
-  content: 'Pick a Category';
+  content: 'Categoria';
   position: absolute;
   background: var(--gradient-blue);
   -webkit-text-fill-color: transparent;

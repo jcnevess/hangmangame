@@ -152,7 +152,7 @@ function resetAndChangeCategory() {
   <div class="container">
     <header>
       <div class="header-controls">
-        <button class="menu-button" role="navigation" title="Toggle Menu" @click="showMenu">
+        <button class="menu-button" role="navigation" title="Ver Menu" @click="showMenu">
           <IconMenu></IconMenu>
         </button>
         <div class="category">{{ currentCategory }}</div>
@@ -163,7 +163,7 @@ function resetAndChangeCategory() {
           class="lives-meter"
           :value="livesLeft"
           max="8"
-          :title="`${livesLeft} Lives Left`"
+          :title="`${livesLeft} Vidas Restantes`"
         ></progress>
         <div class="heart-icon">
           <IconHeart></IconHeart>

@@ -20,11 +20,11 @@ const statusText = computed(() => {
   let text = ''
 
   if (props.status === 'win') {
-    text = 'you win'
+    text = 'vitória'
   } else if (props.status === 'lose') {
-    text = 'you lose'
+    text = 'derrota'
   } else if (props.status === 'pause') {
-    text = 'paused'
+    text = 'pausa'
   }
 
   return text
@@ -52,9 +52,9 @@ function closeModal() {
     <h1 class="title">{{ statusText }}</h1>
     <div class="modal-body">
       <div class="modal-buttons">
-        <button @click="emit('continueGame')">continue</button>
-        <button @click="emit('changeCategory')">new category</button>
-        <button @click="emit('quitGame')" class="button-quit">quit game</button>
+        <button @click="emit('continueGame')">continuar</button>
+        <button @click="emit('changeCategory')">nova categoria</button>
+        <button @click="emit('quitGame')" class="button-quit">sair</button>
       </div>
     </div>
   </dialog>
