@@ -40,10 +40,10 @@ import IconPlay from './icons/IconPlay.vue'
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.5rem;
+  gap: clamp(3.5rem, calc(3rem + 2.5vw), 5rem);
   padding-inline: 2rem;
   position: relative;
-  top: -56px;
+  top: -76px;
 }
 
 .menu img {
@@ -61,7 +61,7 @@ import IconPlay from './icons/IconPlay.vue'
     inset 0 -4px 0 5px #243041,
     inset 0 -12px 0 11px #9d2df5;
   border-radius: 100%;
-  width: 160px;
+  width: clamp(160px, calc(140px + 3vw), 200px);
   aspect-ratio: 1;
   display: flex;
   place-items: center;
@@ -75,6 +75,7 @@ import IconPlay from './icons/IconPlay.vue'
 
 .play-icon {
   height: 50px;
+  height: clamp(50px, calc(40px + 2vw), 62px);
 }
 
 .help {
@@ -100,16 +101,8 @@ import IconPlay from './icons/IconPlay.vue'
 }
 
 @media (min-width: 768px) {
-  .play-button {
-    width: 200px;
-  }
-
-  .play-button svg {
-    height: 62px;
-  }
-
-  .container {
+  /*.container {
     gap: 5rem;
-  }
+  }*/
 }
 </style>

@@ -37,9 +37,7 @@ function startNewGame(category) {
 <style scoped>
 .container {
   width: 100%;
-  background-image: linear-gradient(180deg, hsl(270, 96%, 10%), hsl(238, 58%, 37%));
-  padding-top: 2rem;
-  padding-inline: 1.5rem;
+  padding: 2rem 1.5rem;
   gap: 2rem;
   flex-direction: column;
   display: flex;
@@ -97,12 +95,13 @@ function startNewGame(category) {
   flex-grow: 1;
   justify-content: center;
   align-content: center;
-  gap: 1rem;
+  row-gap: clamp(1rem, calc(0.5rem + 2vw), 3.125rem);
+  column-gap: clamp(1rem, calc(0.5rem + 1.75vw), 2rem);
 }
 
 .category {
   font-family: 'Mouse Memoirs', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, calc(0.75rem + 3vw), 3rem);
   color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 0.15ch;
@@ -124,18 +123,13 @@ function startNewGame(category) {
   background-blend-mode: color-dodge;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 717px) {
   .container {
     position: relative;
   }
 
-  .categories {
-    gap: 2rem;
-  }
-
   .category {
     padding: 3rem 1.75rem;
-    font-size: 2rem;
   }
 
   .button-back {
@@ -149,10 +143,9 @@ function startNewGame(category) {
   }
 }
 
-@media (min-width: 1025px) {
-  .category {
-    padding: 4rem 2.75rem;
-    font-size: 3rem;
+@media (min-width: 840px) {
+  .container {
+    padding: 5rem;
   }
 }
 </style>

@@ -48,7 +48,7 @@ import IconBack from './icons/IconBack.vue'
   width: 100%;
   max-width: 768px;
   padding: 2rem 1.5rem;
-  gap: 5rem;
+  gap: clamp(2rem, calc(1.5rem + 4vw), 5rem);
   flex-direction: column;
   display: flex;
 }
@@ -77,7 +77,7 @@ import IconBack from './icons/IconBack.vue'
 }
 
 .button-back svg {
-  width: 18px;
+  width: clamp(18px, calc(12px + 1vw), 28px);
 }
 
 .title {
@@ -103,6 +103,7 @@ import IconBack from './icons/IconBack.vue'
 .help-cards {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 1.5rem;
 }
 
@@ -121,10 +122,15 @@ import IconBack from './icons/IconBack.vue'
   line-height: 120%;
   letter-spacing: 0.05ch;
   font-weight: normal;
+  text-align: center;
 }
 
 .title-number {
   color: var(--color-blue);
+}
+
+.title-text {
+  font-size: clamp(1.5rem, calc(1rem + 2vw), 3rem);
 }
 
 .help-text {
@@ -133,15 +139,16 @@ import IconBack from './icons/IconBack.vue'
   line-height: 120%;
   letter-spacing: 0.05ch;
   color: hsl(250, 35%, 62%);
+  text-align: center;
+  font-size: clamp(1rem, calc(0.9rem + 1vw), 1.625rem);
 }
 
-@media (min-width: 376px) {
+@media (min-width: 520px) {
   .help-card {
     column-gap: 2rem;
   }
 
   .title {
-    /*font-size: 104px;*/
     -webkit-text-stroke: 18px var(--color-dark-grayish-blue);
     flex-grow: 1;
   }
@@ -151,13 +158,8 @@ import IconBack from './icons/IconBack.vue'
     font-size: 5.5rem;
   }
 
-  .title-text {
-    font-size: 2.5rem;
-  }
-
   .help-text {
     grid-column: unset;
-    font-size: 1.25rem;
   }
 
   .header {
@@ -168,16 +170,12 @@ import IconBack from './icons/IconBack.vue'
     position: absolute;
     z-index: 1;
   }
-
-  .button-back svg {
-    width: 28px;
-  }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 840px) {
   .container {
     max-width: unset;
-    padding: 3rem;
+    padding: 5rem;
   }
 
   .help-cards {

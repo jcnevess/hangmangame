@@ -163,7 +163,7 @@ function resetAndChangeCategory() {
           class="lives-meter"
           :value="livesLeft"
           max="8"
-          title="lives left"
+          :title="`${livesLeft} Lives Left`"
         ></progress>
         <div class="heart-icon">
           <IconHeart></IconHeart>
@@ -232,8 +232,12 @@ function resetAndChangeCategory() {
   cursor: pointer;
 }
 
-.guess-button:hover,
-.guess-button:active {
+.guess-button[disabled] {
+  cursor: not-allowed;
+}
+
+.guess-button:not([disabled]):hover,
+.guess-button:not([disabled]):active {
   color: var(--color-white);
   background-color: var(--color-blue);
 }
@@ -267,10 +271,10 @@ function resetAndChangeCategory() {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem 0.75rem;
+  gap: 1rem 4rem;
 }
 
 .guess-word {
