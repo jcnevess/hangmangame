@@ -48,8 +48,8 @@ import IconBack from './icons/IconBack.vue'
 .container {
   width: 100%;
   max-width: 768px;
-  padding: 2rem 1.5rem;
-  gap: clamp(2rem, calc(1.5rem + 4vw), 5rem);
+  padding: clamp(2rem, calc(1.5rem + 3.75vw), 5rem) clamp(1.5rem, calc(1.5rem + 3.75vw), 5rem);
+  gap: clamp(2rem, calc(1.5rem + 3.75vw), 5rem);
   flex-direction: column;
   display: flex;
 }
@@ -67,8 +67,8 @@ import IconBack from './icons/IconBack.vue'
   display: flex;
   justify-content: center;
   cursor: pointer;
-  width: clamp(40px, calc(40px + 2vw), 60px);
-  height: clamp(40px, calc(40px + 2vw), 60px);
+  width: clamp(40px, calc(40px + 2.5vw), 70px);
+  height: clamp(40px, calc(40px + 2.5vw), 70px);
 }
 
 .button-back:hover,
@@ -84,7 +84,7 @@ import IconBack from './icons/IconBack.vue'
 .title {
   letter-spacing: 0.1ch;
   line-height: 120%;
-  font-size: clamp(3rem, calc(6vw + 1rem), 7rem);
+  font-size: clamp(3rem, calc(6vw + 1rem), 5rem);
   text-align: center;
   text-transform: none;
   position: relative;
@@ -176,7 +176,7 @@ import IconBack from './icons/IconBack.vue'
 @media (min-width: 840px) {
   .container {
     max-width: unset;
-    padding: 5rem;
+    /*padding: 5rem;*/
   }
 
   .help-cards {

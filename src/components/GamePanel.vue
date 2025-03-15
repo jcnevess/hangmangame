@@ -273,6 +273,7 @@ function resetAndChangeCategory() {
   flex-grow: 1;
   flex-direction: row;
   align-items: center;
+  align-content: center;
   justify-content: center;
   gap: 1rem 4rem;
 }
@@ -292,8 +293,9 @@ header {
 
 .category {
   color: var(--color-white);
-  text-transform: capitalize;
-  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1ch;
+  font-size: clamp(2.5rem, calc(2rem + 2vw), 3.5rem);
   font-weight: 500;
 }
 
@@ -301,8 +303,8 @@ header {
   border-radius: 50%;
   border: none;
   background-image: var(--gradient-pink);
-  width: 40px;
-  height: 40px;
+  width: clamp(40px, calc(40px + 2.5vw), 70px);
+  height: clamp(40px, calc(40px + 2.5vw), 70px);
   cursor: pointer;
 }
 
@@ -317,12 +319,12 @@ header {
 }
 
 .heart-icon {
-  height: 24px;
+  height: clamp(24px, calc(16px + 2vw), 48px);
 }
 
 .lives-monitor {
   display: flex;
-  gap: 1rem;
+  gap: clamp(1rem, calc(0.5rem + 2vw), 2rem);
   align-items: center;
 }
 
@@ -333,7 +335,8 @@ progress[value] {
   border-radius: 10px;
   background: var(--color-white);
   padding: 0.25rem;
-  width: 62px;
+  width: clamp(62px, calc(24px + 10vw), 124px);
+  height: clamp(16px, calc(12px + 1vw), 24px);
 }
 
 progress[value]::-webkit-progress-bar {
@@ -344,6 +347,7 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
   border-radius: 10px;
   background: var(--color-dark-navy);
+  height: 20px;
 }
 
 progress[value]::-moz-progress-bar {
@@ -354,19 +358,18 @@ progress[value]::-moz-progress-bar {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(1rem, calc(0.5rem + 2vw), 2rem);
 }
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  height: 100%;
   width: 100%;
   padding: 3rem 1.75rem;
 }
 
-@media (min-width: 376px) {
+@media (min-width: 840px) {
   .guess-button {
     font-size: 3rem;
     border-radius: 24px;

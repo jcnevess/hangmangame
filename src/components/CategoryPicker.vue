@@ -37,7 +37,7 @@ function startNewGame(category) {
 <style scoped>
 .container {
   width: 100%;
-  padding: 2rem 1.5rem;
+  padding: clamp(2rem, calc(1.5rem + 3.75vw), 5rem) clamp(1.5rem, calc(1.5rem + 3.75vw), 5rem);
   gap: 2rem;
   flex-direction: column;
   display: flex;
@@ -53,8 +53,8 @@ function startNewGame(category) {
   background-image: var(--gradient-pink);
   border-radius: 100%;
   border: none;
-  width: clamp(40px, calc(40px + 2vw), 60px);
-  height: clamp(40px, calc(40px + 2vw), 60px);
+  width: clamp(40px, calc(40px + 2.5vw), 70px);
+  height: clamp(40px, calc(40px + 2.5vw), 70px);
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -71,7 +71,7 @@ function startNewGame(category) {
 }
 
 .title {
-  font-size: clamp(3rem, calc(6vw + 1rem), 7rem);
+  font-size: clamp(3rem, calc(6vw + 1rem), 5rem);
   letter-spacing: 0.1ch;
   text-align: center;
   text-transform: none;
@@ -140,12 +140,6 @@ function startNewGame(category) {
   .title {
     text-align: center;
     flex-grow: 1;
-  }
-}
-
-@media (min-width: 840px) {
-  .container {
-    padding: 5rem;
   }
 }
 </style>

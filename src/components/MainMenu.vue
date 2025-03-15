@@ -3,24 +3,31 @@ import IconPlay from './icons/IconPlay.vue'
 </script>
 
 <template>
-  <main class="menu">
-    <div class="container">
-      <div class="logo">
-        <img src="@/assets/images/logo.svg" alt="The Hangman Game" role="heading" />
-      </div>
-      <RouterLink to="/category" class="play-link" role="button">
-        <div class="play-button">
-          <IconPlay class="play-icon"></IconPlay>
+  <div class="wrapper">
+    <main class="menu">
+      <div class="container">
+        <div class="logo">
+          <img src="@/assets/images/logo.svg" alt="The Hangman Game" role="heading" />
         </div>
-      </RouterLink>
-      <RouterLink to="/help">
-        <button class="help">como jogar?</button>
-      </RouterLink>
-    </div>
-  </main>
+        <RouterLink to="/category" class="play-link" role="button">
+          <div class="play-button">
+            <IconPlay class="play-icon"></IconPlay>
+          </div>
+        </RouterLink>
+        <RouterLink to="/help">
+          <button class="help">como jogar?</button>
+        </RouterLink>
+      </div>
+    </main>
+  </div>
 </template>
 
 <style scoped>
+.wrapper {
+  margin: auto;
+  padding-top: 76px;
+}
+
 .menu {
   background-image: linear-gradient(
     180deg,
@@ -40,7 +47,7 @@ import IconPlay from './icons/IconPlay.vue'
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(3.5rem, calc(3rem + 2.5vw), 5rem);
+  gap: 3.5rem;
   padding-inline: 2rem;
   position: relative;
   top: -76px;

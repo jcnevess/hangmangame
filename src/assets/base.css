@@ -34,11 +34,10 @@ html {
 }
 
 #app {
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   background-image: linear-gradient(180deg, hsla(270, 96%, 10%, 50%), hsla(238, 58%, 37%, 50%));
-  overflow-y: scroll;
 }
 
 @media (min-width: 376px) {
